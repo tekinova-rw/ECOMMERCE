@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oscal — Jobs & Scholarships</title>
+  <meta name="description" content="Oscal — Icyicaro cy'akazi, amahirwe y'amasomo n'ubufasha ku bashaka amahirwe yo kwiga no gukura mu mwuga." />
+  <style>
+    /* Simple, modern responsive CSS */
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --accent:#2563eb;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.6);
+      --radius:12px;
+      --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:#111}
+    .container{max-width:var(--maxw);margin:24px auto;padding:0 20px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
+    .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+      box-shadow:0 6px 18px rgba(37,99,235,0.14)
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+    nav a.cta{background:var(--accent);color:white}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;padding:28px;background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(15,23,42,0.06)}
+    .hero-inner{display:flex;flex-direction:column;gap:12px}
+    .h1{font-size:28px;font-weight:800;line-height:1.05}
+    .lead{color:var(--muted);max-width:720px}
+    .search{display:flex;gap:8px;margin-top:8px}
+    .search input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid #e6e9ef}
+    .search button{background:var(--accent);color:white;border:none;padding:12px 16px;border-radius:10px;font-weight:700}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,40,0.04);display:flex;flex-direction:column;gap:8px}
+    .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+    .badge{background:#eef2ff;color:#3730a3;padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px}
+    .section{margin-top:26px}
+    .two-col{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+    .list-item{display:flex;flex-direction:column;border-bottom:1px solid #f1f3f6;padding:10px 0}
+    footer{margin-top:36px;padding:22px 0;color:var(--muted);font-size:14px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f3f4f6;color:#111;font-weight:700;font-size:13px}
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+      nav{display:none}
+      .h1{font-size:22px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">O</div>
+        <div>
+          <div style="font-weight:800">Oscal</div>
+          <div style="font-size:12px;color:var(--muted)">Jobs · Scholarships · Opportunities</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#jobs">Jobs</a>
+        <a href="#scholarships">Scholarships</a>
+        <a href="#about">About</a>
+        <a class="cta" href="#post">Post an Opportunity</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <h1 id="hero-title" class="h1">Oscal — Amahirwe y'akazi n'amasomo, hamwe ahuza abakora n'abiga.</h1>
+        <p class="lead">Shakisha akazi, internships, amahirwe y'ubushakashatsi n'amashuri. Tanga application byoroshye, menya ibisabwa, kandi ubone amahirwe yihariye.</p>
+
+        <form class="search" onsubmit="event.preventDefault(); alert('Search demo — integrate your search engine or API')">
+          <input id="q" type="search" placeholder="Search jobs, scholarships, company or keyword..." />
+          <button type="submit">Shaka</button>
+        </form>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <div class="pill">Free to use</div>
+          <div class="pill">Verified posts</div>
+          <div class="pill">Apply online</div>
+        </div>
+      </div>
+
+      <!-- Featured cards -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:800">Featured: Product Manager (Remote)</div>
+            <div class="badge">Full-time</div>
+          </div>
+          <div class="meta">
+            <div>Acme Corp</div>
+            <div>Deadline: Dec 15, 2025</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:800">Scholarship: Global Leaders Program</div>
+            <div class="badge">Scholarship</div>
+          </div>
+          <div class="meta">
+            <div>University of Kigali</div>
+            <div>Deadline: Jan 10, 2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO COLUMNS: listings + sidebar -->
+    <section class="section two-col">
+      <main>
+        <h2 id="jobs" style="margin:0 0 12px 0">Latest Opportunities</h2>
+
+        <div class="grid" role="list" aria-label="latest posts">
+          <!-- Card 1 -->
+          <article class="card" role="listitem">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:800">Software Engineer — Frontend</div>
+              <div class="badge">Remote</div>
+            </div>
+            <div class="meta"><div>TechHub Rwanda</div><div>Gahunda: 10 applicants</div></div>
+            <p style="color:var(--muted);margin:6px 0 0 0">Ibyo usabwa: JS, React, CSS — Experience 1+ years. Submit CV + portfolio.</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card" role="listitem">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:800">Masters Scholarship — Data Science</div>
+              <div class="badge">Fully Funded</div>
+            </div>
+            <div class="meta"><div>African Institute</div><div>Deadline: Feb 1, 2026</div></div>
+            <p style="color:var(--muted);margin:6px 0 0 0">Fund covers tuition + living stipend. Open to international applicants.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card" role="listitem">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:800">Marketing Intern</div>
+              <div class="badge">Internship</div>
+            </div>
+            <div class="meta"><div>Explore Ltd</div><div>Deadline: Dec 31, 2025</div></div>
+            <p style="color:var(--muted);margin:6px 0 0 0">Great for students. Stipend included. Apply with cover letter.</p>
+          </article>
+        </div>
+
+        <!-- quick filters -->
+        <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
+          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">All</button>
+          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">Remote</button>
+          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">Scholarships</button>
+          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">Internships</button>
+        </div>
+      </main>
+
+      <aside style="display:flex;flex-direction:column;gap:14px">
+        <div class="card">
+          <div style="font-weight:800;margin-bottom:6px">Post an Opportunity</div>
+          <p style="color:var(--muted);margin:0 0 8px 0">Publish jobs or scholarships — free basic listing, paid highlighted posts.</p>
+          <a href="#post" style="display:inline-block;padding:10px 12px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:700">Post now</a>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:800;margin-bottom:6px">Newsletter</div>
+          <p style="color:var(--muted);margin:0 0 8px 0">Subscribe to get handpicked opportunities weekly.</p>
+          <form onsubmit="event.preventDefault(); alert('Thanks — demo only')">
+            <input placeholder="Email address" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;margin-bottom:8px" />
+            <button style="width:100%;padding:10px;border-radius:8px;background:#111;color:white;border:none">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:800;margin-bottom:6px">How it works</div>
+          <ol style="margin:0 0 0 16px;color:var(--muted)">
+            <li>Search or browse categories</li>
+            <li>Apply directly or follow external link</li>
+            <li>Track deadlines and saved posts</li>
+          </ol>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <h2 style="margin:0 0 8px 0">About Oscal</h2>
+      <p style="color:var(--muted);max-width:880px;margin:0">
+        Oscal ni platform igamije guhuza abanyeshuri n'abashaka akazi n’amahirwe y’amasomo. Twibanda ku gutanga posts zisobanutse, gucukumbura amahirwe yizewe, no gufasha abashaka kuzamura ubumenyi n’imyuga.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="post" class="section">
+      <h2 style="margin:0 0 12px 0">Contact / Post an opportunity</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <form style="background:var(--card);padding:12px;border-radius:10px;box-shadow:0 8px 24px rgba(10,10,20,0.04)" onsubmit="event.preventDefault(); alert('Demo post — integrate backend to accept posts')">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <input placeholder="Your name or organisation" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef" />
+            <input placeholder="Email" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef" />
+            <input placeholder="Title (e.g. Software Engineer)" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef" />
+            <textarea placeholder="Short description" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef;min-height:90px"></textarea>
+            <button style="padding:10px;border-radius:8px;background:var(--accent);color:white;border:none">Submit</button>
+          </div>
+        </form>
+
+        <div style="padding:12px;background:rgba(37,99,235,0.06);border-radius:10px">
+          <h3 style="margin:0 0 8px 0">Need help?</h3>
+          <p style="margin:0;color:var(--muted)">Write to <strong>contact@oscal.example</strong> or send a message on Telegram/WhatsApp. We'll reply with posting instructions and prices for featured listings.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>&copy; <strong>Oscal</strong> — {2025}. All rights reserved.</div>
+        <div style="color:var(--muted)">Built with ❤️ — Deploy on Netlify / Vercel / GitHub Pages</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Small client-side helper (no external libs) -->
+  <script>
+    // Example: quick demo to persist search history in localStorage
+    const form = document.querySelector('.search');
+    form.addEventListener('submit', e=>{
+      const q = document.getElementById('q').value.trim();
+      if(!q) return alert('Andika ijambo ushaka');
+      let hist = JSON.parse(localStorage.getItem('oscal_searches') || '[]');
+      hist.unshift({q,qtime: new Date().toISOString()});
+      hist = hist.slice(0,10);
+      localStorage.setItem('oscal_searches', JSON.stringify(hist));
+      alert('Search saved to demo history. Integrate real search API to return results.');
+    });
+  </script>
+</body>
+</html>

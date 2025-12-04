@@ -1,0 +1,756 @@
+[
+  
+  {
+    "id": "rice",
+    "name": "Umuceri Pakistan 25KG",
+    "img": "img/rice.jpg",
+    "category": "food",
+    "fullprice": 20000,
+    "halfprice": 10000
+  },
+  {
+    "id": "kawunga",
+    "name": "Kawunga 10KG",
+    "img": "img/kawunga.jpg",
+    "category": "food",
+    "fullprice": 17000,
+    "halfprice": 8500
+  },
+  {
+    "id": "amavuta",
+    "name": "Amavuta 3L",
+    "img": "img/amavuta.jpg",
+    "category": "food",
+    "fullprice": 24000,
+    "halfprice": 12000
+  },
+  {
+    "id": "isukari",
+    "name": "Isukari 5KG",
+    "img": "img/sugar.jpg",
+    "category": "food",
+    "fullprice": 15000,
+    "halfprice": 7500
+  },
+  {
+    "id": "ubunyobwa",
+    "name": "Ubunyobwa 1KG",
+    "img": "img/peanut.jpg",
+    "category": "food",
+    "fullprice": 12000,
+    "halfprice": 6000
+  },
+  {
+    "id": "biswi",
+    "name": "Biswi",
+    "img": "img/biscuits.jpg",
+    "category": "food",
+    "fullprice": 18000,
+    "halfprice": 9000
+  },
+  {
+    "id": "iminyu",
+    "name": "Iminyu 1KG",
+    "img": "img/salt.jpg",
+    "category": "food",
+    "fullprice": 10000,
+    "halfprice": 5000
+  },
+  {
+    "id": "ubugari",
+    "name": "Ubugari 5KG",
+    "img": "img/ubugari.jpg",
+    "category": "food",
+    "fullprice": 8000,
+    "halfprice": 4000
+  },
+  {
+    "id": "inyama",
+    "name": "Inyama 1KG",
+    "img": "img/meat.jpg",
+    "category": "food",
+    "fullprice": 7000,
+    "halfprice": 3500
+  },
+  {
+    "id": "inkoko",
+    "name": "Inkoko",
+    "img": "img/chicken.jpg",
+    "category": "food",
+    "fullprice": 12000,
+    "halfprice": 6000
+  },
+  {
+    "id": "amagi",
+    "name": "Amagi Ikarito",
+    "img": "img/eggs.jpg",
+    "category": "food",
+    "fullprice": 4500,
+    "halfprice": 2250
+  },
+  {
+    "id": "ibishyimbo",
+    "name": "Ibishyimbo 5KG",
+    "img": "img/beans.jpg",
+    "category": "food",
+    "fullprice": 9000,
+    "halfprice": 4500
+  },
+  {
+    "id": "ifu_ibigori",
+    "name": "Ifu y’Ibigori 2KG",
+    "img": "img/cornflour.jpg",
+    "category": "food",
+    "fullprice": 3000,
+    "halfprice": 1500
+  },
+  {
+    "id": "ifu_ingano",
+    "name": "Ifu y’Ingano 2KG",
+    "img": "img/wheat.jpg",
+    "category": "food",
+    "fullprice": 3500,
+    "halfprice": 1750
+  },
+  {
+    "id": "juice",
+    "name": "Juice 1L",
+    "img": "img/juice.jpg",
+    "category": "food",
+    "fullprice": 2500,
+    "halfprice": 1250
+  },
+  {
+    "id": "soda",
+    "name": "Soda 50CL",
+    "img": "img/soda.jpg",
+    "category": "food",
+    "fullprice": 1200,
+    "halfprice": 600
+  },
+  {
+    "id": "water",
+    "name": "Amazi 1.5L",
+    "img": "img/water.jpg",
+    "category": "food",
+    "fullprice": 1000,
+    "halfprice": 500
+  },
+  {
+    "id": "oranges",
+    "name": "Amacunga 1KG",
+    "img": "img/oranges.jpg",
+    "category": "food",
+    "fullprice": 2000,
+    "halfprice": 1000
+  },
+  {
+    "id": "bananas",
+    "name": "Imineke 1KG",
+    "img": "img/bananas.jpg",
+    "category": "food",
+    "fullprice": 1500,
+    "halfprice": 750
+  },
+  {
+    "id": "avocado",
+    "name": "Avoka 1KG",
+    "img": "img/avocado.jpg",
+    "category": "food",
+    "fullprice": 2000,
+    "halfprice": 1000
+  },
+  {
+    "id": "potatoes",
+    "name": "Ibirayi 10KG",
+    "img": "img/potatoes.jpg",
+    "category": "food",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "carrots",
+    "name": "Karoti 1KG",
+    "img": "img/carrots.jpg",
+    "category": "food",
+    "fullprice": 1800,
+    "halfprice": 900
+  },
+  {
+    "id": "onions",
+    "name": "Igitunguru 1KG",
+    "img": "img/onions.jpg",
+    "category": "food",
+    "fullprice": 1800,
+    "halfprice": 900
+  },
+  {
+    "id": "tomatoes",
+    "name": "Inyanya 1KG",
+    "img": "img/tomatoes.jpg",
+    "category": "food",
+    "fullprice": 2200,
+    "halfprice": 1100
+  },
+  {
+    "id": "milk",
+    "name": "Amata 1L",
+    "img": "img/milk.jpg",
+    "category": "food",
+    "fullprice": 1200,
+    "halfprice": 600
+  },
+  {
+    "id": "yoghurt",
+    "name": "Yoghurt 500ml",
+    "img": "img/yoghurt.jpg",
+    "category": "food",
+    "fullprice": 1500,
+    "halfprice": 750
+  },
+  {
+    "id": "tea",
+    "name": "Icyayi 500g",
+    "img": "img/tea.jpg",
+    "category": "food",
+    "fullprice": 4000,
+    "halfprice": 2000
+  },
+  {
+    "id": "coffee",
+    "name": "Ikawa 500g",
+    "img": "img/coffee.jpg",
+    "category": "food",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "bread",
+    "name": "Umugati",
+    "img": "img/bread.jpg",
+    "category": "food",
+    "fullprice": 1200,
+    "halfprice": 600
+  },
+  {
+    "id": "butter",
+    "name": "Amavuta y’Igisheke 250g",
+    "img": "img/butter.jpg",
+    "category": "food",
+    "fullprice": 1800,
+    "halfprice": 900
+  },
+  {
+    "id": "cheese",
+    "name": "Fromage 200g",
+    "img": "img/cheese.jpg",
+    "category": "food",
+    "fullprice": 3500,
+    "halfprice": 1750
+  },
+  {
+    "id": "noodles",
+    "name": "Indomie",
+    "img": "img/noodles.jpg",
+    "category": "food",
+    "fullprice": 500,
+    "halfprice": 250
+  },
+  {
+    "id": "rice_local",
+    "name": "Umuceri Local 10KG",
+    "img": "img/rice-local.jpg",
+    "category": "food",
+    "fullprice": 12000,
+    "halfprice": 6000
+  },
+  {
+    "id": "pasta",
+    "name": "Pasta 1KG",
+    "img": "img/pasta.jpg",
+    "category": "food",
+    "fullprice": 3500,
+    "halfprice": 1750
+  },
+  {
+    "id": "sorghum",
+    "name": "Ubushera 2KG",
+    "img": "img/sorghum.jpg",
+    "category": "food",
+    "fullprice": 2500,
+    "halfprice": 1250
+  },
+  {
+    "id": "groundnuts",
+    "name": "Ubunyobwa 2KG",
+    "img": "img/groundnuts.jpg",
+    "category": "food",
+    "fullprice": 2500,
+    "halfprice": 1250
+  },
+  {
+    "id": "honey",
+    "name": "Ubuki 1L",
+    "img": "img/honey.jpg",
+    "category": "food",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "maize",
+    "name": "Ibigori 5KG",
+    "img": "img/maize.jpg",
+    "category": "food",
+    "fullprice": 4500,
+    "halfprice": 2250
+  },
+
+
+  {
+    "id": "primus",
+    "name": "Primus 72CL",
+    "img": "img/primus.jpg",
+    "category": "drinks",
+    "fullprice": 1500,
+    "halfprice": 750
+  },
+  {
+    "id": "mutzig",
+    "name": "Mutzig 65CL",
+    "img": "img/mutzig.jpg",
+    "category": "drinks",
+    "fullprice": 2000,
+    "halfprice": 1000
+  },
+  {
+    "id": "inyange_juice",
+    "name": "Inyange Juice 500ml",
+    "img": "img/inyange_juice.jpg",
+    "category": "drinks",
+    "fullprice": 1200,
+    "halfprice": 600
+  },
+  {
+    "id": "amara",
+    "name": "Amaracunga 1L",
+    "img": "img/amara.jpg",
+    "category": "drinks",
+    "fullprice": 2000,
+    "halfprice": 1000
+  },
+
+
+
+  {
+    "id": "soap",
+    "name": "Amasabune",
+    "img": "img/soap.jpg",
+    "category": "cleaning",
+    "fullprice": 14000,
+    "halfprice": 7000
+  },
+  {
+    "id": "sante",
+    "name": "Ibikoresho by’isuku",
+    "img": "img/sante.jpg",
+    "category": "cleaning",
+    "fullprice": 22000,
+    "halfprice": 11000
+  },
+  {
+    "id": "jik",
+    "name": "JIK 1L",
+    "img": "img/jik.jpg",
+    "category": "cleaning",
+    "fullprice": 3000,
+    "halfprice": 1500
+  },
+  {
+    "id": "omo",
+    "name": "Omo 1KG",
+    "img": "img/omo.jpg",
+    "category": "cleaning",
+    "fullprice": 3500,
+    "halfprice": 1750
+  },
+  {
+    "id": "bleach",
+    "name": "Bleach 1L",
+    "img": "img/bleach.jpg",
+    "category": "cleaning",
+    "fullprice": 2500,
+    "halfprice": 1250
+  },
+  {
+    "id": "detergent",
+    "name": "Detergent 2KG",
+    "img": "img/detergent.jpg",
+    "category": "cleaning",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "toilet_cleaner",
+    "name": "Toilet Cleaner",
+    "img": "img/toilet.jpg",
+    "category": "cleaning",
+    "fullprice": 3000,
+    "halfprice": 1500
+  },
+  {
+    "id": "mopper",
+    "name": "Mopper",
+    "img": "img/mopper.jpg",
+    "category": "cleaning",
+    "fullprice": 6000,
+    "halfprice": 3000
+  },
+  {
+    "id": "broom",
+    "name": "Umwashi",
+    "img": "img/broom.jpg",
+    "category": "cleaning",
+    "fullprice": 2000,
+    "halfprice": 1000
+  },
+  {
+    "id": "brush",
+    "name": "Brush",
+    "img": "img/brush.jpg",
+    "category": "cleaning",
+    "fullprice": 1500,
+    "halfprice": 750
+  },
+  {
+    "id": "bin",
+    "name": "Dust Bin",
+    "img": "img/bin.jpg",
+    "category": "cleaning",
+    "fullprice": 8000,
+    "halfprice": 4000
+  },
+
+  
+
+  {
+    "id": "lotion",
+    "name": "Lotion 400ml",
+    "img": "img/lotion.jpg",
+    "category": "cosmetics",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "perfume",
+    "name": "Perfume",
+    "img": "img/perfume.jpg",
+    "category": "cosmetics",
+    "fullprice": 8000,
+    "halfprice": 4000
+  },
+  {
+    "id": "cream",
+    "name": "Cream 250ml",
+    "img": "img/cream.jpg",
+    "category": "cosmetics",
+    "fullprice": 4000,
+    "halfprice": 2000
+  },
+  {
+    "id": "hairfood",
+    "name": "Hair Food",
+    "img": "img/hairfood.jpg",
+    "category": "cosmetics",
+    "fullprice": 3500,
+    "halfprice": 1750
+  },
+  {
+    "id": "shampoo",
+    "name": "Shampoo 1L",
+    "img": "img/shampoo.jpg",
+    "category": "cosmetics",
+    "fullprice": 6000,
+    "halfprice": 3000
+  },
+
+
+  {
+    "id": "pampers",
+    "name": "Pampers 50pcs",
+    "img": "img/pampers.jpg",
+    "category": "babycare",
+    "fullprice": 25000,
+    "halfprice": 12500
+  },
+  {
+    "id": "baby_powder",
+    "name": "Baby Powder",
+    "img": "img/babypowder.jpg",
+    "category": "babycare",
+    "fullprice": 4000,
+    "halfprice": 2000
+  },
+  {
+    "id": "baby_milk",
+    "name": "Baby Milk 400g",
+    "img": "img/babymilk.jpg",
+    "category": "babycare",
+    "fullprice": 15000,
+    "halfprice": 7500
+  },
+
+  {
+    "id": "flask",
+    "name": "Flask 5L",
+    "img": "img/flask.jpg",
+    "category": "home",
+    "fullprice": 15000,
+    "halfprice": 7500
+  },
+  {
+    "id": "plates",
+    "name": "Amasahani 6pcs",
+    "img": "img/plates.jpg",
+    "category": "home",
+    "fullprice": 6000,
+    "halfprice": 3000
+  },
+  {
+    "id": "cups",
+    "name": "Ibikombe 6pcs",
+    "img": "img/cups.jpg",
+    "category": "home",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "jug",
+    "name": "Ikibindi 3L",
+    "img": "img/jug.jpg",
+    "category": "home",
+    "fullprice": 4000,
+    "halfprice": 2000
+  },
+  {
+    "id": "bucket",
+    "name": "Indobo 20L",
+    "img": "img/bucket.jpg",
+    "category": "home",
+    "fullprice": 6000,
+    "halfprice": 3000
+  },
+  {
+    "id": "basin",
+    "name": "Iriba",
+    "img": "img/basin.jpg",
+    "category": "home",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "chair",
+    "name": "Intebe",
+    "img": "img/chair.jpg",
+    "category": "home",
+    "fullprice": 15000,
+    "halfprice": 7500
+  },
+  {
+    "id": "table",
+    "name": "Meza",
+    "img": "img/table.jpg",
+    "category": "home",
+    "fullprice": 30000,
+    "halfprice": 15000
+  },
+  {
+    "id": "bed",
+    "name": "Uburiri",
+    "img": "img/bed.jpg",
+    "category": "home",
+    "fullprice": 100000,
+    "halfprice": 50000
+  },
+  {
+    "id": "mattress",
+    "name": "Matelas 4×6",
+    "img": "img/mattress.jpg",
+    "category": "home",
+    "fullprice": 60000,
+    "halfprice": 30000
+  },
+  {
+    "id": "pillow",
+    "name": "Umusego",
+    "img": "img/pillow.jpg",
+    "category": "home",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "blanket",
+    "name": "Icyobo",
+    "img": "img/blanket.jpg",
+    "category": "home",
+    "fullprice": 15000,
+    "halfprice": 7500
+  },
+  {
+    "id": "curtains",
+    "name": "Amadirishya 2pcs",
+    "img": "img/curtains.jpg",
+    "category": "home",
+    "fullprice": 20000,
+    "halfprice": 10000
+  },
+  {
+    "id": "carpet",
+    "name": "Carpet",
+    "img": "img/carpet.jpg",
+    "category": "home",
+    "fullprice": 35000,
+    "halfprice": 17500
+  },
+  {
+    "id": "tvstand",
+    "name": "TV Stand",
+    "img": "img/tvstand.jpg",
+    "category": "home",
+    "fullprice": 45000,
+    "halfprice": 22500
+  },
+  {
+    "id": "shelf",
+    "name": "Igitabo Shelf",
+    "img": "img/shelf.jpg",
+    "category": "home",
+    "fullprice": 40000,
+    "halfprice": 20000
+  },
+  {
+    "id": "iron",
+    "name": "Fer à repasser",
+    "img": "img/iron.jpg",
+    "category": "electronics",
+    "fullprice": 20000,
+    "halfprice": 10000
+  },
+  {
+    "id": "kettle",
+    "name": "Electric Kettle",
+    "img": "img/kettle.jpg",
+    "category": "electronics",
+    "fullprice": 18000,
+    "halfprice": 9000
+  },
+  {
+    "id": "fan",
+    "name": "Fan",
+    "img": "img/fan.jpg",
+    "category": "electronics",
+    "fullprice": 30000,
+    "halfprice": 15000
+  },
+  {
+    "id": "tv32",
+    "name": "TV 32 inch",
+    "img": "img/tv32.jpg",
+    "category": "electronics",
+    "fullprice": 150000,
+    "halfprice": 75000
+  },
+  {
+    "id": "radio",
+    "name": "Radio",
+    "img": "img/radio.jpg",
+    "category": "electronics",
+    "fullprice": 20000,
+    "halfprice": 10000
+  },
+  {
+    "id": "blender",
+    "name": "Blender",
+    "img": "img/blender.jpg",
+    "category": "electronics",
+    "fullprice": 30000,
+    "halfprice": 15000
+  },
+
+ 
+  {
+    "id": "fertilizer",
+    "name": "Ifumbire y’amasaka 50KG",
+    "img": "img/fertilizer.jpg",
+    "category": "agriculture",
+    "fullprice": 50000,
+    "halfprice": 25000
+  },
+  {
+    "id": "seeds_maize",
+    "name": "Ibigori Seeds 2KG",
+    "img": "img/seeds_maize.jpg",
+    "category": "agriculture",
+    "fullprice": 15000,
+    "halfprice": 7500
+  },
+  {
+    "id": "seeds_beans",
+    "name": "Beans Seeds 2KG",
+    "img": "img/seeds_beans.jpg",
+    "category": "agriculture",
+    "fullprice": 14000,
+    "halfprice": 7000
+  },
+  {
+    "id": "sprayer",
+    "name": "Sprayer 20L",
+    "img": "img/sprayer.jpg",
+    "category": "agriculture",
+    "fullprice": 50000,
+    "halfprice": 25000
+  },
+  {
+    "id": "hoes",
+    "name": "Isuka",
+    "img": "img/hoe.jpg",
+    "category": "agriculture",
+    "fullprice": 5000,
+    "halfprice": 2500
+  },
+  {
+    "id": "wateringcan",
+    "name": "Watering Can",
+    "img": "img/wateringcan.jpg",
+    "category": "agriculture",
+    "fullprice": 8000,
+    "halfprice": 4000
+  },
+  {
+    "id": "mobilemoney",
+    "name": "Service Mobile Money",
+    "img": "img/mobile-money.jpg",
+    "category": "services",
+    "isService": true
+  },
+  {
+    "id": "airtime",
+    "name": "Airtime MTN",
+    "img": "img/airtime.jpg",
+    "category": "services",
+    "isService": true
+  },
+  {
+    "id": "cashpower",
+    "name": "Cash Power",
+    "img": "img/cashpower.jpg",
+    "category": "services",
+    "isService": true
+  },
+  {
+    "id": "transport",
+    "name": "Moto Delivery",
+    "img": "img/moto.jpg",
+    "category": "services",
+    "isService": true
+  }
+]

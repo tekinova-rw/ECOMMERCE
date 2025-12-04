@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Marketplace - Kugura Byoroshye</title>
+<style>
+    :root {
+        --primary: #e67e22;
+        --success: #27ae60;
+        --danger: #e74c3c;
+        --dark: #2c3e50;
+        --light: #ecf0f1;
+        --gray: #95a5a6;
+        --cart-icon-color: #1abc9c;
+    }
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+        color: #333;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        background: var(--dark);
+        color: #fff;
+        padding: 14px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    .navbar h1 { 
+        margin: 0; 
+        font-size: 22px; 
+        font-weight: 600;
+    }
+
+    /* CART ICON BUTTON */
+    .cart-icon-btn {
+        position: relative;
+        cursor: pointer;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    .cart-icon-btn:hover {
+        transform: scale(1.12);
+        box-shadow: 0 10px 30px rgba(230,126,34,0.7);
+    }
+    .cart-svg {
+        width: 32px;
+        height: 32px;
+        fill: white;
+    }
+    .cart-count-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: var(--danger);
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        min-width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid white;
+        padding: 0 6px;
+    }
+
+    /* SPACER */
+    .navbar-spacer { height: 70px; }
+
+    /* SEARCH */
+    #search {
+        width: calc(100% - 32px);
+        margin: 12px 16px;
+        padding: 12px 16px;
+        font-size: 16px;
+        border-radius: 30px;
+        border: none;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        outline: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+
+    /* CATEGORIES */
+    .categories-container {
+        position: fixed;
+        top: 118px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 998;
+        padding: 8px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .categories {
+        display: flex;
+        gap: 12px;
+        padding: 4px 16px;
+        overflow-x: auto;
+        background: #fff;
+        scrollbar-width: none;
+    }
+    .categories::-webkit-scrollbar { display: none; }
+    .cat {
+        padding: 10px 18px;
+        background: #ddd;
+        border-radius: 30px;
+        cursor: pointer;
+        white-space: nowrap;
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+    .cat.active { 
+        background: var(--primary); 
+        color: #fff; 
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(230,126,34,0.3);
+    }
+
+    /* PRODUCTS */
+    .products-section {
+        margin-top: 180px;
+        padding-bottom: 20px;
+    }
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+        gap: 16px;
+        padding: 16px;
+    }
+    .product-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        transition: all af 0.3s;
+        text-align: center;
+        position: relative;
+    }
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .product-card img {
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+        background: #f0f0f0;
+    }
+    .no-image {
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f5f5f5;
+        color: #999;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .product-card h3 {
+        font-size: 15px;
+        margin: 10px 8px 8px;
+        color: #2c3e50;
+    }
+    .price-btn {
+        padding: 8px 12px;
+        margin: 4px 4px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: 13px;
+        transition: all 0.2s;
+    }
+    .full { background: var(--primary); }
+    .half { background: #3498db; }
+    .price-btn:hover { transform: scale(1.05); }
+
+    /* CART PANEL */
+    .cart {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 340px;
+        max-width: 95vw;
+        height: 100%;
+        background: #fff;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+        padding: 20px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow-y: auto;
+        z-index: 9999;
+    }
+    .cart.open { transform: translateX(0); }
+    .cart h2 {
+        margin-top: 0;
+        color: var(--dark);
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .close-cart {
+        cursor: pointer;
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--danger);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(231, 76, 60, 0.1);
+        transition: all 0.2s;
+    }
+    .close-cart:hover {
+        background: var(--danger);
+        color: white;
+    }
+
+    .cart-item {
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cart-item span {
+        color: var(--danger);
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 14px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        margin: 12px 0;
+        transition: all 0.3s;
+    }
+    .btn-success { background: var(--success); color: white; }
+    .btn-primary { background: #3498db; color: white; }
+    .btn-danger { background: var(--danger); color: white; font-size: 18px; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+    #address-form {
+        display: none;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 16px;
+        margin-top: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    #address-form input,
+    #address-form textarea {
+        width: 100%;
+        padding: 14px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .ussd-code {
+        background: #fff0f0;
+        border: 3px dashed var(--danger);
+        padding: 20px;
+        border-radius: 16px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--danger);
+        margin: 20px 0;
+        word-break: break-all;
+    }
+
+    .success-msg {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+        color: white;
+        border-radius: 16px;
+        margin: 15px 0;
+        font-size: 18px;
+    }
+
+    #invoice-canvas { display: none; }
+</style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <h1>My Marketplace</h1>
+        <div class="cart-icon-btn" onclick="toggleCart()">
+            <svg class="cart-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="30" fill="#1abc9c"/>
+                <path d="M18 18h4l4 24h24l4-24h-28z" fill="white"/>
+                <circle cx="24" cy="48" r="6" fill="white"/>
+                <circle cx="44" cy="48" r="6" fill="white"/>
+                <path d="M22 18l-6-12h-4l-4 12" fill="none" stroke="white" stroke-width="3"/>
+            </svg>
+            <span class="cart-count-badge" id="cart-count">0</span>
+        </div>
+    </div>
+    <div class="navbar-spacer"></div>
+
+    <!-- SEARCH -->
+    <input type="text" id="search" placeholder="Shakisha ibicuruzwa..." onkeyup="searchProducts()">
+
+    <!-- CATEGORIES -->
+    <div class="categories-container">
+        <div class="categories" id="categoryList"></div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products-section">
+        <div class="products" id="products"></div>
+    </div>
+
+    <!-- CART PANEL -->
+    <div class="cart" id="cartPanel">
+        <h2>
+            <span id="cart-title">Ibyo Waguriye</span>
+            <!-- NEW X CLOSE BUTTON (appears every time cart is open) -->
+            <div class="close-cart" onclick="toggleCart()">X</div>
+        </h2>
+        <div id="cart-items"></div>
+        <h3 style="margin:20px 0 10px; color:var(--danger); font-size:22px;">
+            Igiteranyo: <strong><span id="cart-total">0</span> FRW</strong>
+        </h3>
+
+        <button class="btn btn-success" id="checkout-btn" onclick="showAddressForm()">
+            Komeza Kugura
+        </button>
+
+        <div id="address-form"></div>
+    </div>
+
+    <canvas id="invoice-canvas" width="600" height="900"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+let products = [], cart = [], finalTotal = 0;
+
+async function loadProducts() {
+    try {
+        const res = await fetch("products.json");
+        products = await res.json();
+        renderCategories();
+        renderProducts(products);
+    } catch(e) {
+        document.getElementById("products").innerHTML = "<p style='text-align:center;color:red;'>Byashize gukurura ibicuruzwa</p>";
+    }
+}
+loadProducts();
+
+function renderCategories() {
+    const cats = [...new Set(products.map(p => p.category))];
+    const list = document.getElementById("categoryList");
+    list.innerHTML = `<div class="cat active" onclick="filterCategory('all', this)">Byose</div>`;
+    cats.forEach(cat => {
+        list.innerHTML += `<div class="cat" onclick="filterCategory('${cat}', this)">${cat}</div>`;
+    });
+}
+
+function filterCategory(cat, el) {
+    document.querySelectorAll(".cat").forEach(c => c.classList.remove("active"));
+    el.classList.add("active");
+    const filtered = cat === "all" ? products : products.filter(p => p.category === cat);
+    renderProducts(filtered);
+}
+
+function searchProducts() {
+    const term = document.getElementById("search").value.toLowerCase();
+    const filtered = products.filter(p => p.name.toLowerCase().includes(term));
+    renderProducts(filtered);
+}
+
+function renderProducts(list) {
+    const container = document.getElementById("products");
+    container.innerHTML = "";
+    list.forEach(p => {
+        container.innerHTML += `
+            <div class="product-card">
+                ${p.img ? 
+                    `<img src="${p.img}" alt="${p.name}" onerror="this.onerror=null; this.outerHTML='<div class=\\'no-image\\'>NO IMAGE</div>'">` 
+                    : `<div class="no-image">NO IMAGE</div>`
+                }
+                <h3>${p.name}</h3>
+                <div>
+                    <button class="price-btn full" onclick="addToCart('${p.id}','full')">Full – ${p.fullprice} FRW</button>
+                    <button class="price-btn half" onclick="addToCart('${p.id}','half')">Half – ${p.halfprice} FRW</button>
+                </div>
+            </div>`;
+    });
+}
+
+function addToCart(id, type) {
+    const item = products.find(p => p.id === id);
+    const price = type === 'full' ? item.fullprice : item.halfprice;
+    const label = type === 'full' ? ' (Full)' : ' (Half)';
+    cart.push({name: item.name + label, price});
+    document.getElementById("cart-count").innerText = cart.length;
+    renderCart();
+}
+
+function renderCart() {
+    const container = document.getElementById("cart-items");
+    container.innerHTML = "";
+    let total = 0;
+    cart.forEach((item, i) => {
+        container.innerHTML += `
+            <div class="cart-item">
+                <div><strong>${item.name}</strong><br><small>${item.price.toLocaleString()} FRW</small></div>
+                <span onclick="removeCart(${i})">X</span>
+            </div>`;
+        total += item.price;
+    });
+    document.getElementById("cart-total").innerText = total.toLocaleString();
+    finalTotal = total;
+}
+
+function removeCart(i) {
+    cart.splice(i, 1);
+    document.getElementById("cart-count").innerText = cart.length;
+    renderCart();
+}
+
+// Toggle cart open/close – now also used by the X button
+function toggleCart() {
+    const panel = document.getElementById("cartPanel");
+    panel.classList.toggle("open");
+    
+    // When closing, reset to normal cart view (in case user was on invoice)
+    if (!panel.classList.contains("open")) {
+        document.getElementById("cart-title").textContent = "Ibyo Waguriye";
+        document.getElementById("checkout-btn").style.display = "block";
+        document.getElementById("cart-items").style.display = "block";
+        document.getElementById("address-form").style.display = "none";
+        document.getElementById("address-form").innerHTML = "";
+    }
+}
+
+function showAddressForm() {
+    if (cart.length === 0) return alert("Nta kintu cyongewe muri cart!");
+    document.getElementById("checkout-btn").style.display = "none";
+    document.getElementById("address-form").style.display = "block";
+    document.getElementById("address-form").innerHTML = `
+        <h3 style="margin-top:0; color:var(--dark);">Andika amakuru yawe</h3>
+        <input type="text" id="customer-name" placeholder="Amazina yawe" required>
+        <input type="tel" id="customer-phone" placeholder="Nomero ya telefoni (078...)" required>
+        <textarea id="customer-address" placeholder="Aderesi y'ubutumire (Umurenge, Akagari...)" rows="3" required></textarea>
+        <button class="btn btn-primary" onclick="generateInvoice()">Emeza Order</button>
+    `;
+}
+
+function generateInvoice() {
+    const name = document.getElementById("customer-name").value.trim();
+    const phone = document.getElementById("customer-phone").value.trim();
+    const address = document.getElementById("customer-address").value.trim();
+
+    if (!name || !phone || !address) return alert("Uzu amakuru yose mbere yo komeza!");
+
+    const canvas = document.getElementById("invoice-canvas");
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, 600, 900);
+
+    ctx.fillStyle = "#2c3e50";
+    ctx.font = "bold 40px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("My Marketplace", 300, 80);
+    ctx.font = "bold 28px Arial";
+    ctx.fillStyle = "#e67e22";
+    ctx.fillText("INVOICE", 300, 130);
+
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "#555";
+    ctx.textAlign = "left";
+    ctx.fillText(`Izina: ${name}`, 80, 200);
+    ctx.fillText(`Telefoni: ${phone}`, 80, 240);
+    ctx.fillText(`Aderesi: ${address}`, 80, 280);
+
+    ctx.fillStyle = "#000";
+    ctx.font = "18px Arial";
+    let y = 340;
+    cart.forEach(item => {
+        ctx.fillText(`${item.name}`, 80, y);
+        ctx.fillText(`${item.price.toLocaleString()} FRW`, 450, y);
+        y += 45;
+    });
+
+    ctx.strokeStyle = "#e67e22";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(80, y + 10);
+    ctx.lineTo(520, y + 10);
+    ctx.stroke();
+
+    ctx.font = "bold 32px Arial";
+    ctx.fillStyle = "#e74c3c";
+    ctx.fillText(`IGITERANYO: ${finalTotal.toLocaleString()} FRW`, 80, y + 70);
+
+    ctx.font = "18px Arial";
+    ctx.fillStyle = "#27ae60";
+    ctx.textAlign = "center";
+    ctx.fillText("Murakoze kugura kuri My Marketplace!", 300, y + 140);
+
+    canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+        const ussd = `*182*8*1*16666*${finalTotal}#`;
+
+        document.getElementById("cart-title").textContent = "Invoice yawe";
+        document.getElementById("cart-items").style.display = "none";
+        document.getElementById("checkout-btn").style.display = "none";
+
+        document.getElementById("address-form").innerHTML = `
+            <div class="success-msg">
+                Order yemejwe neza!<br>Murakoze ${name.split(" ")[0]}!
+            </div>
+            <img src="${url}" style="width:100%; border-radius:16px; border:3px solid #ddd; margin:15px 0;">
+
+            ${isMobile ? 
+                `<button onclick="payAndReturn()" class="btn btn-danger">Rishya ${finalTotal.toLocaleString()} FRW</button>` :
+                `<div class="ussd-code">${ussd}</div>
+                 <p style="text-align:center;"><strong>Kanda *182# ufate code iri hejuru</strong></p>`
+            }
+
+            <div style="display:flex; gap:10px; margin-top:15px;">
+                <button onclick="downloadInvoice('${url}')" class="btn btn-success" style="flex:1;">Download</button>
+                <button onclick="sendToWhatsApp('${url}', '${name}')" class="btn" style="flex:1; background:#25D366;">WhatsApp</button>
+            </div>
+        `;
+
+        confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+    });
+}
+
+function payAndReturn() {
+    window.location.href = "tel:*182*8*1*16666*" + finalTotal + "#";
+    setTimeout(() => {
+        toggleCart();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1000);
+}
+
+function downloadInvoice(url) {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `MyMarketplace_Invoice_${Date.now()}.png`;
+    a.click();
+}
+
+function sendToWhatsApp(imageUrl, name) {
+    const text = encodeURIComponent(`Muraho ${name}!\n\nOrder yawe yemejwe kuri My Marketplace!\n\nIgiteranyo: *${finalTotal.toLocaleString()} FRW*\n\nRishya: *182*8*1*16666*${finalTotal}#\n\nInvoice iri hano:`);
+    window.open(`https://wa.me/?text=${text}`, "_blank");
+}
+</script>
+</body>
+</html>
