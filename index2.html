@@ -1,248 +1,1524 @@
 <!DOCTYPE html>
 <html lang="rw">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Oscal — Jobs & Scholarships</title>
-  <meta name="description" content="Oscal — Icyicaro cy'akazi, amahirwe y'amasomo n'ubufasha ku bashaka amahirwe yo kwiga no gukura mu mwuga." />
-  <style>
-    /* Simple, modern responsive CSS */
-    :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --accent:#2563eb;
-      --muted:#6b7280;
-      --glass: rgba(255,255,255,0.6);
-      --radius:12px;
-      --maxw:1100px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:#111}
-    .container{max-width:var(--maxw);margin:24px auto;padding:0 20px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
-    .logo{
-      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
-      box-shadow:0 6px 18px rgba(37,99,235,0.14)
-    }
-    nav{display:flex;gap:12px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
-    nav a.cta{background:var(--accent);color:white}
-    .hero{display:grid;grid-template-columns:1fr;gap:18px;padding:28px;background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(15,23,42,0.06)}
-    .hero-inner{display:flex;flex-direction:column;gap:12px}
-    .h1{font-size:28px;font-weight:800;line-height:1.05}
-    .lead{color:var(--muted);max-width:720px}
-    .search{display:flex;gap:8px;margin-top:8px}
-    .search input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid #e6e9ef}
-    .search button{background:var(--accent);color:white;border:none;padding:12px 16px;border-radius:10px;font-weight:700}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,40,0.04);display:flex;flex-direction:column;gap:8px}
-    .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
-    .badge{background:#eef2ff;color:#3730a3;padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px}
-    .section{margin-top:26px}
-    .two-col{display:grid;grid-template-columns:2fr 1fr;gap:18px}
-    .list-item{display:flex;flex-direction:column;border-bottom:1px solid #f1f3f6;padding:10px 0}
-    footer{margin-top:36px;padding:22px 0;color:var(--muted);font-size:14px}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f3f4f6;color:#111;font-weight:700;font-size:13px}
-    /* Responsive */
-    @media (max-width:900px){
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .two-col{grid-template-columns:1fr}
-    }
-    @media (max-width:560px){
-      .grid{grid-template-columns:1fr}
-      nav{display:none}
-      .h1{font-size:22px}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e67e22">
+    <title>MyMarket - Ibicuruzwa Byiza Byose</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+    <style>
+        :root {
+            --orange: #e67e22;
+            --orange-dark: #d35400;
+            --green: #27ae60;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --gradient: linear-gradient(135deg, #e67e22, #f39c12);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 80px; /* Space for floating cart */
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 62, 80, 0.98);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 420px;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--orange);
+        }
+
+        /* Tabs */
+        .tabs {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 70px; /* Adjusted for navbar height */
+            z-index: 900;
+            overflow-x: auto;
+        }
+        .tabs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            padding: 0 20px;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+        .tabs-container::-webkit-scrollbar { display: none; } /* Chrome */
+        
+        .tab {
+            padding: 8px 24px;
+            background: #f1f1f1;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+        }
+        .tab.active, .tab:hover {
+            background: var(--orange);
+            color: white;
+            box-shadow: 0 4px 10px rgba(230,126,34,0.3);
+        }
+
+        /* Products Grid */
+        .products {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+        .product-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .product-card:hover img { transform: scale(1.05); }
+        
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        .product-category {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .price-tag {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--orange-dark);
+            margin: 10px 0;
+        }
+        
+        /* Controls inside card */
+        .card-controls {
+            margin-top: auto;
+        }
+        .variant-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        .add-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .add-btn:hover { background: var(--orange); }
+        .add-btn:active { transform: scale(0.98); }
+
+        /* Floating Cart */
+        .floating-cart {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(230,126,34,0.5);
+            cursor: pointer;
+            z-index: 999;
+            transition: transform 0.2s;
+        }
+        .floating-cart:hover { transform: scale(1.1); }
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 2px solid white;
+        }
+
+        /* Cart Drawer */
+        .overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            opacity: 0; visibility: hidden; transition: 0.3s; z-index: 998;
+        }
+        .overlay.active { opacity: 1; visibility: visible; }
+
+        .cart-drawer {
+            position: fixed; top: 0; right: -100%;
+            width: 100%; max-width: 450px; height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-drawer.open { right: 0; }
+
+        .cart-header {
+            padding: 20px;
+            background: var(--dark);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .close-cart {
+            background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;
+        }
+        
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            align-items: center;
+        }
+        .cart-item img {
+            width: 60px; height: 60px; border-radius: 10px; object-fit: cover;
+        }
+        .item-details { flex: 1; }
+        .item-details h4 { font-size: 0.95rem; margin-bottom: 4px; }
+        .item-details small { color: #7f8c8d; }
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .qty-btn-mini {
+            width: 24px; height: 24px; border-radius: 50%; border: 1px solid #ddd;
+            background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .remove-btn {
+            color: #e74c3c; background: none; border: none; cursor: pointer; margin-left: auto;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        .total-row {
+            display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px;
+        }
+        
+        .form-group input {
+            width: 100%; padding: 12px; margin-bottom: 10px;
+            border: 1px solid #ddd; border-radius: 8px; outline: none;
+        }
+        .form-group input:focus { border-color: var(--orange); }
+
+        .action-btn {
+            width: 100%; padding: 15px; border: none; border-radius: 50px;
+            font-weight: bold; font-size: 1rem; cursor: pointer; margin-bottom: 10px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn-whatsapp { background: #25d366; color: white; }
+        .btn-whatsapp:disabled { background: #95e0b0; cursor: not-allowed; }
+        .btn-download { background: #3498db; color: white; }
+        
+        .pay-info {
+            background: #e8f6f3; color: #16a085; padding: 15px;
+            border-radius: 10px; text-align: center; margin-bottom: 15px;
+            border: 1px dashed #16a085;
+        }
+
+        /* Toast Notification */
+        #toast-container {
+            position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+            z-index: 2000; pointer-events: none;
+        }
+        .toast {
+            background: rgba(0,0,0,0.85); color: white; padding: 12px 24px;
+            border-radius: 50px; margin-top: 10px; animation: fadeInOut 3s forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+
+        /* Hidden Receipt for Image Generation */
+        #receipt-capture {
+            position: fixed; left: -9999px; top: 0; width: 400px;
+            background: white; padding: 30px; border: 1px solid #ccc;
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed; inset: 0; background: white; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.5s;
+        }
+        .spinner {
+            width: 50px; height: 50px; border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--orange); border-radius: 50%;
+            animation: spin 1s linear infinite; margin-bottom: 15px;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            .navbar-content { flex-direction: column; }
+            .search-box { width: 100%; max-width: 100%; margin-top: 10px; }
+            .cart-drawer { max-width: 100%; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a class="brand" href="#">
-        <div class="logo">O</div>
-        <div>
-          <div style="font-weight:800">Oscal</div>
-          <div style="font-size:12px;color:var(--muted)">Jobs · Scholarships · Opportunities</div>
+
+<!-- Loader -->
+<div id="loader">
+    <div class="spinner"></div>
+    <h3>MyMarket</h3>
+    <p>Loading products...</p>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="navbar-content">
+        <h1 class="logo">MyMarket</h1>
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Shakisha (Urugero: Umuceri)...">
         </div>
-      </a>
+    </div>
+</div>
 
-      <nav>
-        <a href="#jobs">Jobs</a>
-        <a href="#scholarships">Scholarships</a>
-        <a href="#about">About</a>
-        <a class="cta" href="#post">Post an Opportunity</a>
-      </nav>
-    </header>
+<!-- Categories -->
+<div class="tabs">
+    <div class="tabs-container" id="categoryTabs">
+        <!-- JS will populate this -->
+    </div>
+</div>
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-inner">
-        <h1 id="hero-title" class="h1">Oscal — Amahirwe y'akazi n'amasomo, hamwe ahuza abakora n'abiga.</h1>
-        <p class="lead">Shakisha akazi, internships, amahirwe y'ubushakashatsi n'amashuri. Tanga application byoroshye, menya ibisabwa, kandi ubone amahirwe yihariye.</p>
+<!-- Products -->
+<div class="products" id="productsGrid">
+    <!-- JS will populate this -->
+</div>
 
-        <form class="search" onsubmit="event.preventDefault(); alert('Search demo — integrate your search engine or API')">
-          <input id="q" type="search" placeholder="Search jobs, scholarships, company or keyword..." />
-          <button type="submit">Shaka</button>
-        </form>
+<!-- Floating Cart Button -->
+<div class="floating-cart" onclick="toggleCart()">
+    <span class="cart-count" id="cartCount">0</span>
+    <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
+</div>
 
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
-          <div class="pill">Free to use</div>
-          <div class="pill">Verified posts</div>
-          <div class="pill">Apply online</div>
-        </div>
-      </div>
+<!-- Cart Drawer -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+        <h2>Cart Yacu</h2>
+        <button class="close-cart" onclick="toggleCart()">×</button>
+    </div>
+    
+    <div class="cart-items" id="cartItemsList">
+        <!-- Items go here -->
+    </div>
 
-      <!-- Featured cards -->
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div style="font-weight:800">Featured: Product Manager (Remote)</div>
-            <div class="badge">Full-time</div>
-          </div>
-          <div class="meta">
-            <div>Acme Corp</div>
-            <div>Deadline: Dec 15, 2025</div>
-          </div>
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Total:</span>
+            <span id="cartTotal">0 RWF</span>
         </div>
 
-        <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div style="font-weight:800">Scholarship: Global Leaders Program</div>
-            <div class="badge">Scholarship</div>
-          </div>
-          <div class="meta">
-            <div>University of Kigali</div>
-            <div>Deadline: Jan 10, 2026</div>
-          </div>
+        <div class="pay-info" id="payInfo" style="display:none;">
+            Kwishyura (Momo Pay):<br>
+            <strong>*182*8*1*<span id="ussdAmount">0</span>#</strong>
         </div>
-      </div>
-    </section>
 
-    <!-- TWO COLUMNS: listings + sidebar -->
-    <section class="section two-col">
-      <main>
-        <h2 id="jobs" style="margin:0 0 12px 0">Latest Opportunities</h2>
+        <div class="form-group">
+            <input type="text" id="customerName" placeholder="Amazina yawe" oninput="validateForm()">
+            <input type="text" id="customerPhone" placeholder="Telephone (07...)" oninput="validateForm()">
+            <input type="text" id="customerAddress" placeholder="Aho utuye (Umurenge/Akagari)" oninput="validateForm()">
+        </div>
 
-        <div class="grid" role="list" aria-label="latest posts">
-          <!-- Card 1 -->
-          <article class="card" role="listitem">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div style="font-weight:800">Software Engineer — Frontend</div>
-              <div class="badge">Remote</div>
+        <button class="action-btn btn-whatsapp" id="whatsappBtn" onclick="sendToWhatsApp()" disabled>
+            <i class="fab fa-whatsapp"></i> Tumiza kuri WhatsApp
+        </button>
+        
+        <button class="action-btn btn-download" id="downloadBtn" onclick="downloadReceipt()" disabled>
+            <i class="fas fa-download"></i> Download Ifoto
+        </button>
+        
+        <button class="action-btn" style="background:#e74c3c; color:white; margin-top:10px;" onclick="clearCart()">
+            Siba Cart
+        </button>
+    </div>
+</div>
+
+<!-- Hidden Receipt Template for Image Generation -->
+<div id="receipt-capture">
+    <div style="text-align:center; border-bottom:2px dashed #333; padding-bottom:20px; margin-bottom:20px;">
+        <h1 style="color:#e67e22; margin:0;">MyMarket</h1>
+        <p>Order Summary</p>
+    </div>
+    <div id="receipt-items"></div>
+    <div style="border-top:2px solid #333; margin-top:20px; padding-top:10px; display:flex; justify-content:space-between; font-weight:bold; font-size:1.2rem;">
+        <span>TOTAL:</span>
+        <span id="receipt-total">0 RWF</span>
+    </div>
+    <div id="receipt-customer" style="margin-top:20px; font-size:0.9rem; color:#555;"></div>
+</div>
+
+<div class="footer" style="text-align:center; padding:20px; color:#7f8c8d; font-size:0.9rem;">
+    © 2025 MyMarket Rwanda
+</div>
+
+<script>
+    // --- 1. YOUR EXTERNAL PRODUCTS DATA ---
+    const products = [
+        {
+            "id": "rice",
+            "name": "Umuceri Pakistan 25KG",
+            "img": "img/rice.jpg",
+            "category": "food",
+            "fullprice": 20000,
+            "halfprice": 10000
+        },
+        {
+            "id": "kawunga",
+            "name": "Kawunga 10KG",
+            "img": "img/kawunga.jpg",
+            "category": "food",
+            "fullprice": 17000,
+            "halfprice": 8500
+        },
+        {
+            "id": "amavuta",
+            "name": "Amavuta 3L",
+            "img": "img/amavuta.jpg",
+            "category": "food",
+            "fullprice": 24000,
+            "halfprice": 12000
+        },
+        {
+            "id": "isukari",
+            "name": "Isukari 5KG",
+            "img": "img/sugar.jpg",
+            "category": "food",
+            "fullprice": 15000,
+            "halfprice": 7500
+        },
+        {
+            "id": "ubunyobwa",
+            "name": "Ubunyobwa 1KG",
+            "img": "img/peanut.jpg",
+            "category": "food",
+            "fullprice": 12000,
+            "halfprice": 6000
+        },
+        {
+            "id": "biswi",
+            "name": "Biswi",
+            "img": "img/biscuits.jpg",
+            "category": "food",
+            "fullprice": 18000,
+            "halfprice": 9000
+        },
+        {
+            "id": "iminyu",
+            "name": "Iminyu 1KG",
+            "img": "img/salt.jpg",
+            "category": "food",
+            "fullprice": 10000,
+            "halfprice": 5000
+        },
+        {
+            "id": "ubugari",
+            "name": "Ubugari 5KG",
+            "img": "img/ubugari.jpg",
+            "category": "food",
+            "fullprice": 8000,
+            "halfprice": 4000
+        },
+        {
+            "id": "inyama",
+            "name": "Inyama 1KG",
+            "img": "img/meat.jpg",
+            "category": "food",
+            "fullprice": 7000,
+            "halfprice": 3500
+        },
+        {
+            "id": "inkoko",
+            "name": "Inkoko",
+            "img": "img/chicken.jpg",
+            "category": "food",
+            "fullprice": 12000,
+            "halfprice": 6000
+        },
+        {
+            "id": "amagi",
+            "name": "Amagi Ikarito",
+            "img": "img/eggs.jpg",
+            "category": "food",
+            "fullprice": 4500,
+            "halfprice": 2250
+        },
+        {
+            "id": "ibishyimbo",
+            "name": "Ibishyimbo 5KG",
+            "img": "img/beans.jpg",
+            "category": "food",
+            "fullprice": 9000,
+            "halfprice": 4500
+        },
+        {
+            "id": "ifu_ibigori",
+            "name": "Ifu y'Ibigori 2KG",
+            "img": "img/cornflour.jpg",
+            "category": "food",
+            "fullprice": 3000,
+            "halfprice": 1500
+        },
+        {
+            "id": "ifu_ingano",
+            "name": "Ifu y'Ingano 2KG",
+            "img": "img/wheat.jpg",
+            "category": "food",
+            "fullprice": 3500,
+            "halfprice": 1750
+        },
+        {
+            "id": "juice",
+            "name": "Juice 1L",
+            "img": "img/juice.jpg",
+            "category": "food",
+            "fullprice": 2500,
+            "halfprice": 1250
+        },
+        {
+            "id": "soda",
+            "name": "Soda 50CL",
+            "img": "img/soda.jpg",
+            "category": "food",
+            "fullprice": 1200,
+            "halfprice": 600
+        },
+        {
+            "id": "water",
+            "name": "Amazi 1.5L",
+            "img": "img/water.jpg",
+            "category": "food",
+            "fullprice": 1000,
+            "halfprice": 500
+        },
+        {
+            "id": "oranges",
+            "name": "Amacunga 1KG",
+            "img": "img/oranges.jpg",
+            "category": "food",
+            "fullprice": 2000,
+            "halfprice": 1000
+        },
+        {
+            "id": "bananas",
+            "name": "Imineke 1KG",
+            "img": "img/bananas.jpg",
+            "category": "food",
+            "fullprice": 1500,
+            "halfprice": 750
+        },
+        {
+            "id": "avocado",
+            "name": "Avoka 1KG",
+            "img": "img/avocado.jpg",
+            "category": "food",
+            "fullprice": 2000,
+            "halfprice": 1000
+        },
+        {
+            "id": "potatoes",
+            "name": "Ibirayi 10KG",
+            "img": "img/potatoes.jpg",
+            "category": "food",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "carrots",
+            "name": "Karoti 1KG",
+            "img": "img/carrots.jpg",
+            "category": "food",
+            "fullprice": 1800,
+            "halfprice": 900
+        },
+        {
+            "id": "onions",
+            "name": "Igitunguru 1KG",
+            "img": "img/onions.jpg",
+            "category": "food",
+            "fullprice": 1800,
+            "halfprice": 900
+        },
+        {
+            "id": "tomatoes",
+            "name": "Inyanya 1KG",
+            "img": "img/tomatoes.jpg",
+            "category": "food",
+            "fullprice": 2200,
+            "halfprice": 1100
+        },
+        {
+            "id": "milk",
+            "name": "Amata 1L",
+            "img": "img/milk.jpg",
+            "category": "food",
+            "fullprice": 1200,
+            "halfprice": 600
+        },
+        {
+            "id": "yoghurt",
+            "name": "Yoghurt 500ml",
+            "img": "img/yoghurt.jpg",
+            "category": "food",
+            "fullprice": 1500,
+            "halfprice": 750
+        },
+        {
+            "id": "tea",
+            "name": "Icyayi 500g",
+            "img": "img/tea.jpg",
+            "category": "food",
+            "fullprice": 4000,
+            "halfprice": 2000
+        },
+        {
+            "id": "coffee",
+            "name": "Ikawa 500g",
+            "img": "img/coffee.jpg",
+            "category": "food",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "bread",
+            "name": "Umugati",
+            "img": "img/bread.jpg",
+            "category": "food",
+            "fullprice": 1200,
+            "halfprice": 600
+        },
+        {
+            "id": "butter",
+            "name": "Amavuta y'Igisheke 250g",
+            "img": "img/butter.jpg",
+            "category": "food",
+            "fullprice": 1800,
+            "halfprice": 900
+        },
+        {
+            "id": "cheese",
+            "name": "Fromage 200g",
+            "img": "img/cheese.jpg",
+            "category": "food",
+            "fullprice": 3500,
+            "halfprice": 1750
+        },
+        {
+            "id": "noodles",
+            "name": "Indomie",
+            "img": "img/noodles.jpg",
+            "category": "food",
+            "fullprice": 500,
+            "halfprice": 250
+        },
+        {
+            "id": "rice_local",
+            "name": "Umuceri Local 10KG",
+            "img": "img/rice-local.jpg",
+            "category": "food",
+            "fullprice": 12000,
+            "halfprice": 6000
+        },
+        {
+            "id": "pasta",
+            "name": "Pasta 1KG",
+            "img": "img/pasta.jpg",
+            "category": "food",
+            "fullprice": 3500,
+            "halfprice": 1750
+        },
+        {
+            "id": "sorghum",
+            "name": "Ubushera 2KG",
+            "img": "img/sorghum.jpg",
+            "category": "food",
+            "fullprice": 2500,
+            "halfprice": 1250
+        },
+        {
+            "id": "groundnuts",
+            "name": "Ubunyobwa 2KG",
+            "img": "img/groundnuts.jpg",
+            "category": "food",
+            "fullprice": 2500,
+            "halfprice": 1250
+        },
+        {
+            "id": "honey",
+            "name": "Ubuki 1L",
+            "img": "img/honey.jpg",
+            "category": "food",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "maize",
+            "name": "Ibigori 5KG",
+            "img": "img/maize.jpg",
+            "category": "food",
+            "fullprice": 4500,
+            "halfprice": 2250
+        },
+        {
+            "id": "primus",
+            "name": "Primus 72CL",
+            "img": "img/primus.jpg",
+            "category": "drinks",
+            "fullprice": 1500,
+            "halfprice": 750
+        },
+        {
+            "id": "mutzig",
+            "name": "Mutzig 65CL",
+            "img": "img/mutzig.jpg",
+            "category": "drinks",
+            "fullprice": 2000,
+            "halfprice": 1000
+        },
+        {
+            "id": "inyange_juice",
+            "name": "Inyange Juice 500ml",
+            "img": "img/inyange_juice.jpg",
+            "category": "drinks",
+            "fullprice": 1200,
+            "halfprice": 600
+        },
+        {
+            "id": "amara",
+            "name": "Amaracunga 1L",
+            "img": "img/amara.jpg",
+            "category": "drinks",
+            "fullprice": 2000,
+            "halfprice": 1000
+        },
+        {
+            "id": "soap",
+            "name": "Amasabune",
+            "img": "img/soap.jpg",
+            "category": "cleaning",
+            "fullprice": 14000,
+            "halfprice": 7000
+        },
+        {
+            "id": "sante",
+            "name": "Ibikoresho by'isuku",
+            "img": "img/sante.jpg",
+            "category": "cleaning",
+            "fullprice": 22000,
+            "halfprice": 11000
+        },
+        {
+            "id": "jik",
+            "name": "JIK 1L",
+            "img": "img/jik.jpg",
+            "category": "cleaning",
+            "fullprice": 3000,
+            "halfprice": 1500
+        },
+        {
+            "id": "omo",
+            "name": "Omo 1KG",
+            "img": "img/omo.jpg",
+            "category": "cleaning",
+            "fullprice": 3500,
+            "halfprice": 1750
+        },
+        {
+            "id": "bleach",
+            "name": "Bleach 1L",
+            "img": "img/bleach.jpg",
+            "category": "cleaning",
+            "fullprice": 2500,
+            "halfprice": 1250
+        },
+        {
+            "id": "detergent",
+            "name": "Detergent 2KG",
+            "img": "img/detergent.jpg",
+            "category": "cleaning",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "toilet_cleaner",
+            "name": "Toilet Cleaner",
+            "img": "img/toilet.jpg",
+            "category": "cleaning",
+            "fullprice": 3000,
+            "halfprice": 1500
+        },
+        {
+            "id": "mopper",
+            "name": "Mopper",
+            "img": "img/mopper.jpg",
+            "category": "cleaning",
+            "fullprice": 6000,
+            "halfprice": 3000
+        },
+        {
+            "id": "broom",
+            "name": "Umwashi",
+            "img": "img/broom.jpg",
+            "category": "cleaning",
+            "fullprice": 2000,
+            "halfprice": 1000
+        },
+        {
+            "id": "brush",
+            "name": "Brush",
+            "img": "img/brush.jpg",
+            "category": "cleaning",
+            "fullprice": 1500,
+            "halfprice": 750
+        },
+        {
+            "id": "bin",
+            "name": "Dust Bin",
+            "img": "img/bin.jpg",
+            "category": "cleaning",
+            "fullprice": 8000,
+            "halfprice": 4000
+        },
+        {
+            "id": "lotion",
+            "name": "Lotion 400ml",
+            "img": "img/lotion.jpg",
+            "category": "cosmetics",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "perfume",
+            "name": "Perfume",
+            "img": "img/perfume.jpg",
+            "category": "cosmetics",
+            "fullprice": 8000,
+            "halfprice": 4000
+        },
+        {
+            "id": "cream",
+            "name": "Cream 250ml",
+            "img": "img/cream.jpg",
+            "category": "cosmetics",
+            "fullprice": 4000,
+            "halfprice": 2000
+        },
+        {
+            "id": "hairfood",
+            "name": "Hair Food",
+            "img": "img/hairfood.jpg",
+            "category": "cosmetics",
+            "fullprice": 3500,
+            "halfprice": 1750
+        },
+        {
+            "id": "shampoo",
+            "name": "Shampoo 1L",
+            "img": "img/shampoo.jpg",
+            "category": "cosmetics",
+            "fullprice": 6000,
+            "halfprice": 3000
+        },
+        {
+            "id": "pampers",
+            "name": "Pampers 50pcs",
+            "img": "img/pampers.jpg",
+            "category": "babycare",
+            "fullprice": 25000,
+            "halfprice": 12500
+        },
+        {
+            "id": "baby_powder",
+            "name": "Baby Powder",
+            "img": "img/babypowder.jpg",
+            "category": "babycare",
+            "fullprice": 4000,
+            "halfprice": 2000
+        },
+        {
+            "id": "baby_milk",
+            "name": "Baby Milk 400g",
+            "img": "img/babymilk.jpg",
+            "category": "babycare",
+            "fullprice": 15000,
+            "halfprice": 7500
+        },
+        {
+            "id": "flask",
+            "name": "Flask 5L",
+            "img": "img/flask.jpg",
+            "category": "home",
+            "fullprice": 15000,
+            "halfprice": 7500
+        },
+        {
+            "id": "plates",
+            "name": "Amasahani 6pcs",
+            "img": "img/plates.jpg",
+            "category": "home",
+            "fullprice": 6000,
+            "halfprice": 3000
+        },
+        {
+            "id": "cups",
+            "name": "Ibikombe 6pcs",
+            "img": "img/cups.jpg",
+            "category": "home",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "jug",
+            "name": "Ikibindi 3L",
+            "img": "img/jug.jpg",
+            "category": "home",
+            "fullprice": 4000,
+            "halfprice": 2000
+        },
+        {
+            "id": "bucket",
+            "name": "Indobo 20L",
+            "img": "img/bucket.jpg",
+            "category": "home",
+            "fullprice": 6000,
+            "halfprice": 3000
+        },
+        {
+            "id": "basin",
+            "name": "Iriba",
+            "img": "img/basin.jpg",
+            "category": "home",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "chair",
+            "name": "Intebe",
+            "img": "img/chair.jpg",
+            "category": "home",
+            "fullprice": 15000,
+            "halfprice": 7500
+        },
+        {
+            "id": "table",
+            "name": "Meza",
+            "img": "img/table.jpg",
+            "category": "home",
+            "fullprice": 30000,
+            "halfprice": 15000
+        },
+        {
+            "id": "bed",
+            "name": "Uburiri",
+            "img": "img/bed.jpg",
+            "category": "home",
+            "fullprice": 100000,
+            "halfprice": 50000
+        },
+        {
+            "id": "mattress",
+            "name": "Matelas 4×6",
+            "img": "img/mattress.jpg",
+            "category": "home",
+            "fullprice": 60000,
+            "halfprice": 30000
+        },
+        {
+            "id": "pillow",
+            "name": "Umusego",
+            "img": "img/pillow.jpg",
+            "category": "home",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "blanket",
+            "name": "Icyobo",
+            "img": "img/blanket.jpg",
+            "category": "home",
+            "fullprice": 15000,
+            "halfprice": 7500
+        },
+        {
+            "id": "curtains",
+            "name": "Amadirishya 2pcs",
+            "img": "img/curtains.jpg",
+            "category": "home",
+            "fullprice": 20000,
+            "halfprice": 10000
+        },
+        {
+            "id": "carpet",
+            "name": "Carpet",
+            "img": "img/carpet.jpg",
+            "category": "home",
+            "fullprice": 35000,
+            "halfprice": 17500
+        },
+        {
+            "id": "tvstand",
+            "name": "TV Stand",
+            "img": "img/tvstand.jpg",
+            "category": "home",
+            "fullprice": 45000,
+            "halfprice": 22500
+        },
+        {
+            "id": "shelf",
+            "name": "Igitabo Shelf",
+            "img": "img/shelf.jpg",
+            "category": "home",
+            "fullprice": 40000,
+            "halfprice": 20000
+        },
+        {
+            "id": "iron",
+            "name": "Fer à repasser",
+            "img": "img/iron.jpg",
+            "category": "electronics",
+            "fullprice": 20000,
+            "halfprice": 10000
+        },
+        {
+            "id": "kettle",
+            "name": "Electric Kettle",
+            "img": "img/kettle.jpg",
+            "category": "electronics",
+            "fullprice": 18000,
+            "halfprice": 9000
+        },
+        {
+            "id": "fan",
+            "name": "Fan",
+            "img": "img/fan.jpg",
+            "category": "electronics",
+            "fullprice": 30000,
+            "halfprice": 15000
+        },
+        {
+            "id": "tv32",
+            "name": "TV 32 inch",
+            "img": "img/tv32.jpg",
+            "category": "electronics",
+            "fullprice": 150000,
+            "halfprice": 75000
+        },
+        {
+            "id": "radio",
+            "name": "Radio",
+            "img": "img/radio.jpg",
+            "category": "electronics",
+            "fullprice": 20000,
+            "halfprice": 10000
+        },
+        {
+            "id": "blender",
+            "name": "Blender",
+            "img": "img/blender.jpg",
+            "category": "electronics",
+            "fullprice": 30000,
+            "halfprice": 15000
+        },
+        {
+            "id": "fertilizer",
+            "name": "Ifumbire y'masaka 50KG",
+            "img": "img/fertilizer.jpg",
+            "category": "agriculture",
+            "fullprice": 50000,
+            "halfprice": 25000
+        },
+        {
+            "id": "seeds_maize",
+            "name": "Ibigori Seeds 2KG",
+            "img": "img/seeds_maize.jpg",
+            "category": "agriculture",
+            "fullprice": 15000,
+            "halfprice": 7500
+        },
+        {
+            "id": "seeds_beans",
+            "name": "Beans Seeds 2KG",
+            "img": "img/seeds_beans.jpg",
+            "category": "agriculture",
+            "fullprice": 14000,
+            "halfprice": 7000
+        },
+        {
+            "id": "sprayer",
+            "name": "Sprayer 20L",
+            "img": "img/sprayer.jpg",
+            "category": "agriculture",
+            "fullprice": 50000,
+            "halfprice": 25000
+        },
+        {
+            "id": "hoes",
+            "name": "Isuka",
+            "img": "img/hoe.jpg",
+            "category": "agriculture",
+            "fullprice": 5000,
+            "halfprice": 2500
+        },
+        {
+            "id": "wateringcan",
+            "name": "Watering Can",
+            "img": "img/wateringcan.jpg",
+            "category": "agriculture",
+            "fullprice": 8000,
+            "halfprice": 4000
+        },
+        {
+            "id": "mobilemoney",
+            "name": "Service Mobile Money",
+            "img": "img/mobile-money.jpg",
+            "category": "services",
+            "isService": true
+        },
+        {
+            "id": "airtime",
+            "name": "Airtime MTN",
+            "img": "img/airtime.jpg",
+            "category": "services",
+            "isService": true
+        },
+        {
+            "id": "cashpower",
+            "name": "Cash Power",
+            "img": "img/cashpower.jpg",
+            "category": "services",
+            "isService": true
+        },
+        {
+            "id": "transport",
+            "name": "Moto Delivery",
+            "img": "img/moto.jpg",
+            "category": "services",
+            "isService": true
+        }
+    ];
+
+    // --- 2. STATE MANAGEMENT ---
+    let cart = JSON.parse(localStorage.getItem('myMarketCart')) || [];
+    let currentCategory = 'Byose';
+
+    // --- 3. INITIALIZATION ---
+    window.onload = () => {
+        renderCategories();
+        renderProducts();
+        updateCartUI();
+        setTimeout(() => {
+            document.getElementById('loader').style.opacity = '0';
+            setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
+        }, 800);
+    };
+
+    // --- 4. RENDERING FUNCTIONS ---
+    function renderCategories() {
+        // Filter out services from categories
+        const productCategories = products.filter(p => !p.isService).map(p => p.category);
+        const categories = ['Byose', ...new Set(productCategories)];
+        const container = document.getElementById('categoryTabs');
+        
+        container.innerHTML = categories.map(cat => `
+            <div class="tab ${cat === 'Byose' ? 'active' : ''}" 
+                 onclick="filterCategory('${cat}', this)">
+                 ${cat.charAt(0).toUpperCase() + cat.slice(1)}
             </div>
-            <div class="meta"><div>TechHub Rwanda</div><div>Gahunda: 10 applicants</div></div>
-            <p style="color:var(--muted);margin:6px 0 0 0">Ibyo usabwa: JS, React, CSS — Experience 1+ years. Submit CV + portfolio.</p>
-          </article>
+        `).join('');
+    }
 
-          <!-- Card 2 -->
-          <article class="card" role="listitem">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div style="font-weight:800">Masters Scholarship — Data Science</div>
-              <div class="badge">Fully Funded</div>
+    function renderProducts(filteredProducts = products) {
+        const grid = document.getElementById('productsGrid');
+        
+        // Filter out services
+        filteredProducts = filteredProducts.filter(p => !p.isService);
+        
+        if (filteredProducts.length === 0) {
+            grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px;">Nta gicuruzwa cyabonetse.</div>`;
+            return;
+        }
+
+        grid.innerHTML = filteredProducts.map(product => `
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="${product.img}" alt="${product.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg=='">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${product.category}</div>
+                    <h3>${product.name}</h3>
+                    <div class="price-tag">${product.fullprice.toLocaleString()} RWF</div>
+                    
+                    <div class="card-controls">
+                        <select class="variant-select" id="variant-${product.id}">
+                            <option value="full">Igiceshi (Full Price)</option>
+                            <option value="half">Igiceshi (Half Price)</option>
+                        </select>
+                        <button class="add-btn" onclick="addToCart('${product.id}')">
+                            <i class="fas fa-cart-plus"></i> Gura
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="meta"><div>African Institute</div><div>Deadline: Feb 1, 2026</div></div>
-            <p style="color:var(--muted);margin:6px 0 0 0">Fund covers tuition + living stipend. Open to international applicants.</p>
-          </article>
+        `).join('');
+    }
 
-          <!-- Card 3 -->
-          <article class="card" role="listitem">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div style="font-weight:800">Marketing Intern</div>
-              <div class="badge">Internship</div>
-            </div>
-            <div class="meta"><div>Explore Ltd</div><div>Deadline: Dec 31, 2025</div></div>
-            <p style="color:var(--muted);margin:6px 0 0 0">Great for students. Stipend included. Apply with cover letter.</p>
-          </article>
-        </div>
+    // --- 5. FILTER & SEARCH ---
+    function filterCategory(category, element) {
+        currentCategory = category;
+        
+        // Update active tab
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        element.classList.add('active');
 
-        <!-- quick filters -->
-        <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
-          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">All</button>
-          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">Remote</button>
-          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">Scholarships</button>
-          <button style="padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white">Internships</button>
-        </div>
-      </main>
+        // Filter products (excluding services)
+        let filtered = products.filter(p => !p.isService);
+        
+        if (category !== 'Byose') {
+            filtered = filtered.filter(p => p.category === category);
+        }
+        
+        renderProducts(filtered);
+    }
 
-      <aside style="display:flex;flex-direction:column;gap:14px">
-        <div class="card">
-          <div style="font-weight:800;margin-bottom:6px">Post an Opportunity</div>
-          <p style="color:var(--muted);margin:0 0 8px 0">Publish jobs or scholarships — free basic listing, paid highlighted posts.</p>
-          <a href="#post" style="display:inline-block;padding:10px 12px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:700">Post now</a>
-        </div>
-
-        <div class="card">
-          <div style="font-weight:800;margin-bottom:6px">Newsletter</div>
-          <p style="color:var(--muted);margin:0 0 8px 0">Subscribe to get handpicked opportunities weekly.</p>
-          <form onsubmit="event.preventDefault(); alert('Thanks — demo only')">
-            <input placeholder="Email address" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;margin-bottom:8px" />
-            <button style="width:100%;padding:10px;border-radius:8px;background:#111;color:white;border:none">Subscribe</button>
-          </form>
-        </div>
-
-        <div class="card">
-          <div style="font-weight:800;margin-bottom:6px">How it works</div>
-          <ol style="margin:0 0 0 16px;color:var(--muted)">
-            <li>Search or browse categories</li>
-            <li>Apply directly or follow external link</li>
-            <li>Track deadlines and saved posts</li>
-          </ol>
-        </div>
-      </aside>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-      <h2 style="margin:0 0 8px 0">About Oscal</h2>
-      <p style="color:var(--muted);max-width:880px;margin:0">
-        Oscal ni platform igamije guhuza abanyeshuri n'abashaka akazi n’amahirwe y’amasomo. Twibanda ku gutanga posts zisobanutse, gucukumbura amahirwe yizewe, no gufasha abashaka kuzamura ubumenyi n’imyuga.
-      </p>
-    </section>
-
-    <!-- Contact -->
-    <section id="post" class="section">
-      <h2 style="margin:0 0 12px 0">Contact / Post an opportunity</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <form style="background:var(--card);padding:12px;border-radius:10px;box-shadow:0 8px 24px rgba(10,10,20,0.04)" onsubmit="event.preventDefault(); alert('Demo post — integrate backend to accept posts')">
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <input placeholder="Your name or organisation" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef" />
-            <input placeholder="Email" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef" />
-            <input placeholder="Title (e.g. Software Engineer)" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef" />
-            <textarea placeholder="Short description" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef;min-height:90px"></textarea>
-            <button style="padding:10px;border-radius:8px;background:var(--accent);color:white;border:none">Submit</button>
-          </div>
-        </form>
-
-        <div style="padding:12px;background:rgba(37,99,235,0.06);border-radius:10px">
-          <h3 style="margin:0 0 8px 0">Need help?</h3>
-          <p style="margin:0;color:var(--muted)">Write to <strong>contact@oscal.example</strong> or send a message on Telegram/WhatsApp. We'll reply with posting instructions and prices for featured listings.</p>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>&copy; <strong>Oscal</strong> — {2025}. All rights reserved.</div>
-        <div style="color:var(--muted)">Built with ❤️ — Deploy on Netlify / Vercel / GitHub Pages</div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Small client-side helper (no external libs) -->
-  <script>
-    // Example: quick demo to persist search history in localStorage
-    const form = document.querySelector('.search');
-    form.addEventListener('submit', e=>{
-      const q = document.getElementById('q').value.trim();
-      if(!q) return alert('Andika ijambo ushaka');
-      let hist = JSON.parse(localStorage.getItem('oscal_searches') || '[]');
-      hist.unshift({q,qtime: new Date().toISOString()});
-      hist = hist.slice(0,10);
-      localStorage.setItem('oscal_searches', JSON.stringify(hist));
-      alert('Search saved to demo history. Integrate real search API to return results.');
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        const filtered = products.filter(p => 
+            !p.isService && (
+                p.name.toLowerCase().includes(term) || 
+                p.category.toLowerCase().includes(term)
+            )
+        );
+        renderProducts(filtered);
     });
-  </script>
+
+    // --- 6. CART LOGIC ---
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        const variant = document.getElementById(`variant-${productId}`).value;
+        
+        // Check if item already exists with same variant
+        const existingItem = cart.find(item => item.id === productId && item.variant === variant);
+
+        if (existingItem) {
+            existingItem.qty++;
+        } else {
+            cart.push({ 
+                ...product, 
+                variant, 
+                qty: 1,
+                selectedPrice: variant === 'full' ? product.fullprice : product.halfprice
+            });
+        }
+
+        saveCart();
+        updateCartUI();
+        showToast(`Won-geye: ${product.name} (${variant === 'full' ? 'Igiceshi' : 'Half'})`);
+        toggleCart(true); // Open cart automatically
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        saveCart();
+        updateCartUI();
+    }
+
+    function changeQty(index, change) {
+        if (cart[index].qty + change > 0) {
+            cart[index].qty += change;
+            saveCart();
+            updateCartUI();
+        }
+    }
+
+    function clearCart() {
+        if(confirm('Ushaka gusiba cart yose?')) {
+            cart = [];
+            saveCart();
+            updateCartUI();
+        }
+    }
+
+    function saveCart() {
+        localStorage.setItem('myMarketCart', JSON.stringify(cart));
+    }
+
+    function updateCartUI() {
+        const list = document.getElementById('cartItemsList');
+        const countBadge = document.getElementById('cartCount');
+        const totalEl = document.getElementById('cartTotal');
+        const ussdAmount = document.getElementById('ussdAmount');
+        const payInfo = document.getElementById('payInfo');
+
+        // Update Count
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+        countBadge.textContent = totalQty;
+        countBadge.style.display = totalQty > 0 ? 'flex' : 'none';
+
+        // Update List
+        if (cart.length === 0) {
+            list.innerHTML = `<div style="text-align:center; padding:40px; color:#999;">
+                <i class="fas fa-shopping-basket" style="font-size:3rem; margin-bottom:10px;"></i>
+                <p>Cart irimo ubusa</p>
+            </div>`;
+            payInfo.style.display = 'none';
+        } else {
+            list.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJbWFnZTwvdGV4dD48L3N2Zz4='">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <small>Ubwoko: ${item.variant === 'full' ? 'Igiceshi' : 'Half'}</small>
+                        <div style="font-weight:bold; color:var(--orange-dark);">
+                            ${(item.selectedPrice * item.qty).toLocaleString()} RWF
+                        </div>
+                        <div class="item-actions">
+                            <div class="qty-btn-mini" onclick="changeQty(${index}, -1)">-</div>
+                            <span>${item.qty}</span>
+                            <div class="qty-btn-mini" onclick="changeQty(${index}, 1)">+</div>
+                        </div>
+                    </div>
+                    <button class="remove-btn" onclick="removeFromCart(${index})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+            payInfo.style.display = 'block';
+        }
+
+        // Update Total
+        const total = cart.reduce((sum, item) => sum + (item.selectedPrice * item.qty), 0);
+        totalEl.textContent = total.toLocaleString() + " RWF";
+        ussdAmount.textContent = total;
+
+        validateForm(); // Check if buttons should be enabled
+    }
+
+    function toggleCart(forceOpen = false) {
+        const drawer = document.getElementById('cartDrawer');
+        const overlay = document.getElementById('overlay');
+        
+        if (forceOpen || !drawer.classList.contains('open')) {
+            drawer.classList.add('open');
+            overlay.classList.add('active');
+        } else {
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+    }
+
+    // --- 7. CHECKOUT & UTILS ---
+    function validateForm() {
+        const name = document.getElementById('customerName').value;
+        const phone = document.getElementById('customerPhone').value;
+        const address = document.getElementById('customerAddress').value;
+        const hasItems = cart.length > 0;
+
+        const isValid = name && phone && address && hasItems;
+        
+        document.getElementById('whatsappBtn').disabled = !isValid;
+        document.getElementById('downloadBtn').disabled = !isValid;
+    }
+
+    function sendToWhatsApp() {
+        const name = document.getElementById('customerName').value;
+        const phone = document.getElementById('customerPhone').value;
+        const address = document.getElementById('customerAddress').value;
+        
+        let message = `*Komande Nshya - MyMarket*%0a%0a`;
+        message += `👤 *Amazina:* ${name}%0a`;
+        message += `📞 *Telephone:* ${phone}%0a`;
+        message += `📍 *Aho atuye:* ${address}%0a%0a`;
+        message += `*--- IBICURUZWA ---*%0a`;
+        
+        let total = 0;
+        cart.forEach(item => {
+            const itemTotal = item.selectedPrice * item.qty;
+            total += itemTotal;
+            const variantText = item.variant === 'full' ? 'Igiceshi' : 'Half';
+            message += `▪️ ${item.name} (${variantText}) x${item.qty} - ${itemTotal.toLocaleString()} RWF%0a`;
+        });
+        
+        message += `%0a💰 *TOTAL: ${total.toLocaleString()} RWF*`;
+
+        // Replace with your actual WhatsApp number
+        const myNumber = "250780000000"; 
+        window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
+    }
+
+    function showToast(msg) {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `<i class="fas fa-check-circle"></i> ${msg}`;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+
+    // --- 8. IMAGE GENERATION (HTML2CANVAS) ---
+    function downloadReceipt() {
+        const btn = document.getElementById('downloadBtn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating...';
+        
+        // Populate hidden receipt div
+        const receiptItems = document.getElementById('receipt-items');
+        const name = document.getElementById('customerName').value;
+        
+        receiptItems.innerHTML = cart.map(item => {
+            const variantText = item.variant === 'full' ? 'Igiceshi' : 'Half';
+            return `
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #eee;">
+                    <span>${item.name} (${variantText}) x${item.qty}</span>
+                    <span>${(item.selectedPrice * item.qty).toLocaleString()}</span>
+                </div>
+            `;
+        }).join('');
+        
+        const total = cart.reduce((sum, item) => sum + (item.selectedPrice * item.qty), 0);
+        document.getElementById('receipt-total').textContent = total.toLocaleString() + " RWF";
+        document.getElementById('receipt-customer').innerHTML = `Customer: ${name}<br>Date: ${new Date().toLocaleString()}`;
+
+        // Generate Image
+        const element = document.getElementById('receipt-capture');
+        
+        html2canvas(element).then(canvas => {
+            const link = document.createElement('a');
+            link.download = `Order-${name}-${Date.now()}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+            
+            btn.innerHTML = originalText;
+            showToast('Ifoto yamanuwe!');
+        });
+    }
+</script>
+
 </body>
 </html>
