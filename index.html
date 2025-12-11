@@ -374,7 +374,7 @@
 
     <!-- NAVBAR -->
     <div class="navbar">
-        <h1>My Marketplace</h1>
+        <h1></h1>
         <div class="cart-icon-btn" onclick="toggleCart()">
             <svg class="cart-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="32" cy="32" r="30" fill="#1abc9c"/>
@@ -404,7 +404,7 @@
     <!-- CART PANEL -->
     <div class="cart" id="cartPanel">
         <h2>
-            <span id="cart-title">Ibyo Waguriye</span>
+            <span id="cart-title">Ibyo umaze kugura</span>
             <!-- NEW X CLOSE BUTTON (appears every time cart is open) -->
             <div class="close-cart" onclick="toggleCart()">X</div>
         </h2>
@@ -517,7 +517,7 @@ function toggleCart() {
     
     // When closing, reset to normal cart view (in case user was on invoice)
     if (!panel.classList.contains("open")) {
-        document.getElementById("cart-title").textContent = "Ibyo Waguriye";
+        document.getElementById("cart-title").textContent = "Ibyo umaze kugura";
         document.getElementById("checkout-btn").style.display = "block";
         document.getElementById("cart-items").style.display = "block";
         document.getElementById("address-form").style.display = "none";
@@ -530,7 +530,7 @@ function showAddressForm() {
     document.getElementById("checkout-btn").style.display = "none";
     document.getElementById("address-form").style.display = "block";
     document.getElementById("address-form").innerHTML = `
-        <h3 style="margin-top:0; color:var(--dark);">Andika amakuru yawe</h3>
+        <h3 style="margin-top:0; color:var(--dark);">Andika umwirondoro wawe</h3>
         <input type="text" id="customer-name" placeholder="Amazina yawe" required>
         <input type="tel" id="customer-phone" placeholder="Nomero ya telefoni (078...)" required>
         <textarea id="customer-address" placeholder="Aderesi y'ubutumire (Umurenge, Akagari...)" rows="3" required></textarea>
@@ -543,7 +543,7 @@ function generateInvoice() {
     const phone = document.getElementById("customer-phone").value.trim();
     const address = document.getElementById("customer-address").value.trim();
 
-    if (!name || !phone || !address) return alert("Uzu amakuru yose mbere yo komeza!");
+    if (!name || !phone || !address) return alert("Uzuza amakuru yose mbere yo komeza!");
 
     const canvas = document.getElementById("invoice-canvas");
     const ctx = canvas.getContext("2d");
