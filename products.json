@@ -513,30 +513,7 @@
     "fullprice": 5000,
     "halfprice": 2500
   },
-  {
-    "id": "chair",
-    "name": "Intebe",
-    "img": "img/chair.jpg",
-    "category": "home",
-    "fullprice": 15000,
-    "halfprice": 7500
-  },
-  {
-    "id": "table",
-    "name": "Meza",
-    "img": "img/table.jpg",
-    "category": "home",
-    "fullprice": 30000,
-    "halfprice": 15000
-  },
-  {
-    "id": "bed",
-    "name": "Uburiri",
-    "img": "img/bed.jpg",
-    "category": "home",
-    "fullprice": 100000,
-    "halfprice": 50000
-  },
+ 
   {
     "id": "mattress",
     "name": "Matelas 4×6",
@@ -553,14 +530,7 @@
     "fullprice": 5000,
     "halfprice": 2500
   },
-  {
-    "id": "blanket",
-    "name": "Icyobo",
-    "img": "img/blanket.jpg",
-    "category": "home",
-    "fullprice": 15000,
-    "halfprice": 7500
-  },
+  
   {
     "id": "curtains",
     "name": "Amadirishya 2pcs",
@@ -577,14 +547,7 @@
     "fullprice": 35000,
     "halfprice": 17500
   },
-  {
-    "id": "tvstand",
-    "name": "TV Stand",
-    "img": "img/tvstand.jpg",
-    "category": "home",
-    "fullprice": 45000,
-    "halfprice": 22500
-  },
+ 
   {
     "id": "shelf",
     "name": "Igitabo Shelf",
@@ -609,14 +572,7 @@
     "fullprice": 18000,
     "halfprice": 9000
   },
-  {
-    "id": "fan",
-    "name": "Fan",
-    "img": "img/fan.jpg",
-    "category": "electronics",
-    "fullprice": 30000,
-    "halfprice": 15000
-  },
+ 
   {
     "id": "tv32",
     "name": "TV 32 inch",
@@ -649,14 +605,7 @@
     "fullprice": 50000,
     "halfprice": 25000
   },
-  {
-    "id": "seeds_maize",
-    "name": "Ibigori Seeds 2KG",
-    "img": "img/seeds_maize.jpg",
-    "category": "agriculture",
-    "fullprice": 15000,
-    "halfprice": 7500
-  },
+  
   {
     "id": "seeds_beans",
     "name": "Beans Seeds 2KG",
@@ -681,14 +630,7 @@
     "fullprice": 5000,
     "halfprice": 2500
   },
-  {
-    "id": "wateringcan",
-    "name": "Watering Can",
-    "img": "img/wateringcan.jpg",
-    "category": "agriculture",
-    "fullprice": 8000,
-    "halfprice": 4000
-  },
+  
   {
     "id": "mobilemoney",
     "name": "Service Mobile Money",
