@@ -36,10 +36,31 @@
         right: 0;
         z-index: 1000;
     }
-    .navbar h1 { 
-        margin: 0; 
-        font-size: 22px; 
+
+    /* NEW LOGO SECTION */
+    .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .logo-img {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        border: 2px solid var(--primary);
+        padding: 3px;
+        background: white;
+    }
+    .logo-text h1 {
+        margin: 0;
+        font-size: 22px;
         font-weight: 600;
+    }
+    .logo-text small {
+        font-size: 10px;
+        color: var(--primary);
+        font-weight: bold;
+        letter-spacing: 1px;
     }
 
     /* CART ICON BUTTON */
@@ -319,7 +340,8 @@
     
     /* RESPONSIVE DESIGN */
     @media (max-width: 768px) {
-        .navbar h1 { font-size: 20px; }
+        .logo-img { width: 38px; height: 38px; }
+        .logo-text h1 { font-size: 20px; }
         .cart-icon-btn { width: 50px; height: 50px; }
         .cart-svg { width: 28px; height: 28px; }
         
@@ -344,7 +366,8 @@
     
     @media (max-width: 480px) {
         .navbar { padding: 10px 12px; }
-        .navbar h1 { font-size: 18px; }
+        .logo-img { width: 34px; height: 34px; }
+        .logo-text h1 { font-size: 18px; }
         .cart-icon-btn { width: 46px; height: 46px; }
         .cart-svg { width: 26px; height: 26px; }
         
@@ -372,9 +395,18 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR WITH LOGO -->
     <div class="navbar">
-        <h1></h1>
+        <!-- LOGO + NAME -->
+        <div class="logo-section">
+            <img src="/img/nyis.png" alt="OSN Shop" class="logo-img">
+            <div class="logo-text">
+                <h1>OSN Shop</h1>
+                <small>KUGURA BIKOROHEYE</small>
+            </div>
+        </div>
+
+        <!-- CART ICON -->
         <div class="cart-icon-btn" onclick="toggleCart()">
             <svg class="cart-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="32" cy="32" r="30" fill="#1abc9c"/>
@@ -405,7 +437,6 @@
     <div class="cart" id="cartPanel">
         <h2>
             <span id="cart-title">Ibyo umaze kugura</span>
-            <!-- NEW X CLOSE BUTTON (appears every time cart is open) -->
             <div class="close-cart" onclick="toggleCart()">X</div>
         </h2>
         <div id="cart-items"></div>
@@ -510,12 +541,10 @@ function removeCart(i) {
     renderCart();
 }
 
-// Toggle cart open/close – now also used by the X button
 function toggleCart() {
     const panel = document.getElementById("cartPanel");
     panel.classList.toggle("open");
     
-    // When closing, reset to normal cart view (in case user was on invoice)
     if (!panel.classList.contains("open")) {
         document.getElementById("cart-title").textContent = "Ibyo umaze kugura";
         document.getElementById("checkout-btn").style.display = "block";
@@ -596,7 +625,6 @@ function generateInvoice() {
         const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
         const ussd = `*182*8*1*16666*${finalTotal}#`;
         
-        // Prepare WhatsApp message with product list
         const productList = cart.map(item => `• ${item.name}: ${item.price.toLocaleString()} FRW`).join('\n');
         const footerAddress = "Kicukiro, Kigali, Rwanda | mymarketplace.rw";
         const whatsappMessage = `munyoherereze bino bicuruzwa:\n\n${productList}\n\nIGITERANYO: ${finalTotal.toLocaleString()} FRW\n\n${footerAddress}`;
@@ -646,19 +674,15 @@ function sendToWhatsApp(message, imageUrl) {
     const whatsappNumber = "+25078001929";
     const encodedMessage = encodeURIComponent(message);
     
-    // Show system notification
     alert("Uragerageje kohereza ubutumwa kuri WhatsApp:\n\n" + message + 
           "\n\nNomero: " + whatsappNumber + 
           "\n\nKanda 'OK' kugirango ujye kuri WhatsApp...");
     
-    // Open WhatsApp with the message
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     window.open(whatsappLink, '_blank');
 }
 
-// Responsive adjustment on window resize
 window.addEventListener('resize', function() {
-    // Adjust cart panel width for mobile
     const cartPanel = document.getElementById('cartPanel');
     if (window.innerWidth <= 480) {
         cartPanel.style.width = '100%';
@@ -669,7 +693,6 @@ window.addEventListener('resize', function() {
     }
 });
 
-// Initial responsive setup
 window.dispatchEvent(new Event('resize'));
 </script>
 </body>

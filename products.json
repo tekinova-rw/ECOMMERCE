@@ -144,10 +144,10 @@
     "halfprice": 500
   },
   {
-    "id": "oranges",
+    "id": "inyange_juice",
     "name": "Inyange Juice 500ml",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpe6YCccasL_AfIlcdRzCsA7Q1Wnl3NGz0yQ&s",
-    "category": "food",
+    "category": "drinks",
     "fullprice": 2000,
     "halfprice": 1000
   },
@@ -340,7 +340,7 @@
   {
     "id": "omo",
     "name": "Omo 1KG",
-    "img": "img/omo.jpg",
+    "img": "https://kimironkomarket.rw/wp-content/uploads/2021/03/Sunlight-5kg.webp",
     "category": "cleaning",
     "fullprice": 3500,
     "halfprice": 1750
